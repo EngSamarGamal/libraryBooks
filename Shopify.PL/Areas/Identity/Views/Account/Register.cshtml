@@ -1,0 +1,70 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<div class="main-agileinfo">
+	<div class="agileits-top">
+		<form asp-action="Register">
+
+
+			<input asp-for="Email" placeholder="Email">
+			<span asp-validation-for="Email" class="text-danger"></span>
+			<br />
+
+			<input asp-for="Password" placeholder="Password">
+			<span asp-validation-for="Password" class="text-danger"></span>
+			<br />
+
+			<input asp-for="ConfirmPassword" placeholder="Confirm Password">
+			<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+			<br />
+
+			<input asp-for="State" placeholder="state">
+			<span asp-validation-for="State" class="text-danger"></span>
+			<br />
+
+			<input asp-for="City" placeholder="City">
+			<span asp-validation-for="City" class="text-danger"></span>
+			<br />
+
+			<input asp-for="StreetAddress" placeholder="Street Address">
+			<span asp-validation-for="StreetAddress" class="text-danger"></span>
+			<br />
+
+			<input asp-for="PostalCode" placeholder="Postal Code">
+			<span asp-validation-for="PostalCode" class="text-danger"></span>
+			<br />
+
+			<div class="mb-3 col-6">
+				<select asp-for="Role" asp-items="ViewBag.RoleList" class="form-select">
+					<option disabled selected>--Select Role Type--</option>
+				</select>
+
+				<span asp-validation-for="Role" class="text-danger"></span>
+			</div>
+			<br />
+
+			<div class="wthree-text">
+				<label class="anim">
+					<input asp-for="IsAgree" class="checkbox">
+					<span>I Agree To The Terms & Conditions</span>
+				</label>
+				<div class="clear"> </div>
+			</div>
+			<input type="submit" value="SIGNUP">
+		</form>
+		<p>Do you have an Account? <a asp-action="Login"> Login Now!</a></p>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+
+	}
+}

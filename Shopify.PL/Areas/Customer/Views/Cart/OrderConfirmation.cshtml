@@ -1,0 +1,38 @@
+﻿@model List<ShoppingCart>
+
+<h2>You have paid successfully</h2>
+
+@if (Model.Count > 0)
+{
+    <table class="table" border="2">
+        <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>Book Id</th>
+                <th>DownLoad</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Product.Title</td>
+                    <td>@item.Product.Id</td>
+                    <td>
+                        <a class="btn btn-danger" asp-area="Customer" asp-controller="Cart" asp-action="Download" asp-route-bookId="@item.Product.Id">Download</a>
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No items in the shopping cart.</p>
+}
+
+<p>Thank you for your order!</p>
+
